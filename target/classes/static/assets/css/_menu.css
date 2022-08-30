@@ -1,0 +1,8 @@
+.navbar-brand, .nav-item {
+	font-size: 20px !important;
+	margin-right: 13px;
+}
+
+.container-fluid {
+	background-color: red;
+}

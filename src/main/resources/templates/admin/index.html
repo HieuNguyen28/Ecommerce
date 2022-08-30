@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="dynamic(view)">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROSE-ADMIN</title>
+    <!-- Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" th:href="@{admin/assets/css/fontawesome.min.css}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" th:href="@{admin/assets/css/bootstrap.min.css}">
+    <!-- Custom css -->
+    <link rel="stylesheet" th:href="@{admin/assets/css/templatemo-style.css}">
+</head>
+
+<body id="reportsPage">
+    <!-- Header -->
+    <div th:replace="~{/admin/components/header.html}"></div>
+
+    <!-- Content -->
+    <div th:replace="${view}"></div>
+
+    <!-- Footer -->
+    <div th:replace="~{/admin/components/footer.html}"></div>
+
+    <script th:src="@{admin/assets/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{admin/assets/js/moment.min.js}"></script>
+    <script th:src="@{admin/assets/js/Chart.min.js}"></script>
+    <script th:src="@{admin/assets/js/bootstrap.min.js}"></script>
+    <script th:src="@{admin/assets/js/tooplate-scripts.js}"></script>
+    <script>
+        Chart.defaults.global.defaultFontColor = 'white';
+        let ctxLine,
+            ctxBar,
+            ctxPie,
+            optionsLine,
+            optionsBar,
+            optionsPie,
+            configLine,
+            configBar,
+            configPie,
+            lineChart;
+        barChart, pieChart;
+        // DOM is ready
+        $(function () {
+            drawLineChart(); // Line Chart
+            drawBarChart(); // Bar Chart
+            drawPieChart(); // Pie Chart
+
+            $(window).resize(function () {
+                updateLineChart();
+                updateBarChart();
+            });
+        })
+    </script>
+</body>
+
+</html>
